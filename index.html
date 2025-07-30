@@ -1,62 +1,120 @@
 
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMR Калькулятор</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>BMR Калькулятор</h1>
-        <h2>Розрахунок за формулою @fitgymdiet</h2>
-        <form id="bmr-form">
-            <label for="gender">Стать:</label>
-            <select id="gender" required>
-                <option value="male">Чоловік</option>
-                <option value="female">Жінка</option>
-            </select>
-
-            <label for="age">Вік (у роках):</label>
-            <input type="number" id="age" placeholder="Наприклад, 25" required>
-
-            <label for="height">Зріст (у см):</label>
-            <input type="number" id="height" placeholder="Наприклад, 170" required>
-
-            <label for="weight">Вага (у кг):</label>
-            <input type="number" id="weight" placeholder="Наприклад, 65" required>
-
-            <label for="activity">Рівень активності:</label>
-            <select id="activity" required>
-                <option value="1.2">Мінімальний (сидячий спосіб життя)</option>
-                <option value="1.375">Низький (легка активність 1–3 рази на тиждень)</option>
-                <option value="1.55">Середній (помірна активність 3–5 разів на тиждень)</option>
-                <option value="1.725">Високий (інтенсивне тренування 6–7 разів на тиждень)</option>
-                <option value="1.9">Дуже високий (двічі на день або фізична робота)</option>
-            </select>
-
-            <label for="goal">Цільова калорійність:</label>
-            <select id="goal" required>
-                <option value="0.7">-30%</option>
-                <option value="0.75">-25%</option>
-                <option value="0.8">-20%</option>
-                <option value="0.85">-15%</option>
-                <option value="0.9">-10%</option>
-                <option value="0.95">-5%</option>
-                <option value="1">0%</option>
-                <option value="1.05">+5%</option>
-                <option value="1.1">+10%</option>
-                <option value="1.15">+15%</option>
-                <option value="1.2">+20%</option>
-                <option value="1.25">+25%</option>
-                <option value="1.3">+30%</option>
-            </select>
-
-            <button type="submit">Розрахувати</button>
-        </form>
-        <div id="result" class="result"></div>
+<!DOCTYPE html><html lang="uk"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMR Калькулятор</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      max-width: 600px;
+      margin: 40px auto;
+    }
+  </style>
+</head><body>
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="text-center text-success">BMR Калькулятор</h2>
+      <h4 class="text-center text-success">Розрахунок за формулою @fitgymdiet</h4>
+      <form id="bmrForm">
+        <div class="mb-3">
+          <label for="gender" class="form-label">Стать:</label>
+          <select id="gender" class="form-select">
+            <option value="female">Жінка</option>
+            <option value="male">Чоловік</option>
+          </select>
+        </div><div class="mb-3">
+      <label for="age" class="form-label">Вік (у роках):</label>
+      <input type="number" id="age" class="form-control" placeholder="Наприклад, 25">
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+
+    <div class="mb-3">
+      <label for="height" class="form-label">Зріст (у см):</label>
+      <input type="number" id="height" class="form-control" placeholder="Наприклад, 170">
+    </div>
+
+    <div class="mb-3">
+      <label for="weight" class="form-label">Вага (у кг):</label>
+      <input type="number" id="weight" class="form-control" placeholder="Наприклад, 65">
+    </div>
+
+    <div class="mb-3">
+      <label for="activity" class="form-label">Рівень активності:</label>
+      <select id="activity" class="form-select">
+        <option value="1.2">Мінімальний (сидячий спосіб життя)</option>
+        <option value="1.375">Низький (легка активність 1–3 рази на тиждень)</option>
+        <option value="1.55">Середній (помірна активність 3–5 разів на тиждень)</option>
+        <option value="1.725">Високий (інтенсивні тренування 6–7 разів на тиждень)</option>
+        <option value="1.9">Дуже високий (фізична праця або тренування двічі на день)</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="goal" class="form-label">Цільова калорійність:</label>
+      <select id="goal" class="form-select">
+        <option value="-0.3">-30%</option>
+        <option value="-0.25">-25%</option>
+        <option value="-0.2">-20%</option>
+        <option value="-0.15">-15%</option>
+        <option value="-0.1">-10%</option>
+        <option value="-0.05">-5%</option>
+        <option value="0">0%</option>
+        <option value="0.05">+5%</option>
+        <option value="0.1">+10%</option>
+        <option value="0.15">+15%</option>
+        <option value="0.2">+20%</option>
+        <option value="0.25">+25%</option>
+        <option value="0.3">+30%</option>
+      </select>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-success">Розрахувати</button>
+    </div>
+  </form>
+
+  <div id="results" class="mt-4" style="display:none">
+    <div class="alert alert-success">
+      <h5 class="mb-2">🔥 Результати:</h5>
+      <p id="bmrResult"></p>
+      <p id="tdeeResult"></p>
+      <p id="goalCaloriesResult"></p>
+    </div>
+  </div>
+</div>
+
+  </div>  <script>
+    document.getElementById("bmrForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const gender = document.getElementById("gender").value;
+      const age = parseInt(document.getElementById("age").value);
+      const height = parseInt(document.getElementById("height").value);
+      const weight = parseInt(document.getElementById("weight").value);
+      const activity = parseFloat(document.getElementById("activity").value);
+      const goal = parseFloat(document.getElementById("goal").value);
+
+      if (isNaN(age) || isNaN(height) || isNaN(weight)) {
+        alert("Будь ласка, заповніть усі поля коректно.");
+        return;
+      }
+
+      let bmr;
+      if (gender === "male") {
+        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+      } else {
+        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+      }
+
+      const tdee = bmr * activity;
+      const goalCalories = tdee * (1 + goal);
+
+      document.getElementById("bmrResult").textContent = `BMR (базовий обмін): ${Math.round(bmr)} ккал`;
+      document.getElementById("tdeeResult").textContent = `TDEE (з урахуванням активності): ${Math.round(tdee)} ккал`;
+      document.getElementById("goalCaloriesResult").textContent = `Цільова калорійність: ${Math.round(goalCalories)} ккал`;
+
+      document.getElementById("results").style.display = "block";
+    });
+  </script></body></html>
